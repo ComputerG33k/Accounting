@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+
+int main()
+{
+  string food = "";
+  string vehicle = "";
+  string clothing = "";
+  double smith = 0.0;
+  double auto = 0.0;
+  double amazon = 0.0;
+  double TJMax = 0.0;
+  string gas = "";
+  string sewage = "";
+  array
