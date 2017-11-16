@@ -5,13 +5,16 @@
 
 int main()
 {
-  string food = "";
-  string vehicle = "";
-  string clothing = "";
-  double smith = 0.0;
-  double auto = 0.0;
-  double amazon = 0.0;
-  double TJMax = 0.0;
+  const char amazon = 'AMAZON';
+  const char TJMax = 'TJMAX';
+  const char walmart = 'WALMART';
+  const char smith's = 'SMITHS';
+  const char tinks = 'TINKS';
+  const char phillips = 'PHILLIPS';
+  double transDate = 0.0;
+  double postDate = 0.0;
+  char type = ' ';
+  string supplies = "";
   string gas = "";
   string sewage = "";
   double food[50] = {0.0};
@@ -19,9 +22,18 @@ int main()
   double gas[10] = {0.0};
   double sewage[10] = {0.0};
   
-  ofstream outExpenses;
-  outExpenses.open("Expenses.txt");
+  ifstream inExpenses;
+  inExpenses.open("Expenses.txt");
   
-  if (outExpenses.is_open)
+  if (inExpenses.is_open)
   {
+  while (
+  {
+    inExpenses >> type;
+    inExpenses.ignore(1);
+    inExpenses >> transDate;
+    inExpenses.ignore(1);
+    inExpenses >> postDate;
+    inExpenses.ignore(1);
     
+   
