@@ -6,7 +6,7 @@
 int main()
 {
   const char amazon = 'AMAZON';
-  const char TJMax = 'TJMAX';
+  const char TJMaxx = 'TJMAXX';
   const char walmart = 'WALMART';
   const char smith's = 'SMITHS';
   const char tinks = 'TINKS';
@@ -17,7 +17,7 @@ int main()
   string supplies = "";
   string gas = "";
   string sewage = "";
-  double food[50] = {0.0};
+  double supplies[50] = {0.0};
   double vehicle[20] = {0.0};
   double gas[10] = {0.0};
   double sewage[10] = {0.0};
@@ -27,13 +27,16 @@ int main()
   
   if (inExpenses.is_open)
   {
-  while (
-  {
-    inExpenses >> type;
-    inExpenses.ignore(1);
-    inExpenses >> transDate;
-    inExpenses.ignore(1);
-    inExpenses >> postDate;
-    inExpenses.ignore(1);
-    
+    while (
+    {
+      inExpenses >> type;
+      inExpenses.ignore(1);
+      inExpenses >> transDate;
+      inExpenses.ignore(1);
+      inExpenses >> postDate;
+      inExpenses.ignore(1);
+      inExpenses >> supplies;
+      if (toupper(supplies) == "AMAZON" || toupper(supplies) == "T J MAXX" || toupper(supplies) == "WALMART" || toupper(supplies) == "SMITH'S")
+      {
+        
    
