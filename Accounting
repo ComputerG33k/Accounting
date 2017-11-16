@@ -14,4 +14,14 @@ int main()
   double TJMax = 0.0;
   string gas = "";
   string sewage = "";
-  array
+  double food[50] = {0.0};
+  double vehicle[20] = {0.0};
+  double gas[10] = {0.0};
+  double sewage[10] = {0.0};
+  
+  ofstream outExpenses;
+  outExpenses.open("Expenses.txt");
+  
+  if (outExpenses.is_open)
+  {
+    
