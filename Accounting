@@ -13,30 +13,43 @@ int main()
   const char phillips = 'PHILLIPS';
   double transDate = 0.0;
   double postDate = 0.0;
+  double amount = 0.0;
   char type = ' ';
   string supplies = "";
-  string gas = "";
-  string sewage = "";
-  double supplies[50] = {0.0};
-  double vehicle[20] = {0.0};
-  double gas[10] = {0.0};
-  double sewage[10] = {0.0};
+  double expenses[18][4] = {0.0};
   
   ifstream inExpenses;
   inExpenses.open("Expenses.txt");
   
   if (inExpenses.is_open)
   {
-    while (
+    
+    for (int i = 0; i < 19; i++)
     {
-      inExpenses >> type;
-      inExpenses.ignore(1);
-      inExpenses >> transDate;
-      inExpenses.ignore(1);
-      inExpenses >> postDate;
-      inExpenses.ignore(1);
-      inExpenses >> supplies;
-      if (toupper(supplies) == "AMAZON" || toupper(supplies) == "T J MAXX" || toupper(supplies) == "WALMART" || toupper(supplies) == "SMITH'S")
-      {
+      while (!inExpenses.eof)
+      { 
+        !inExpenses.eof)
+        inExpenses >> type;
+        inExpenses.ignore(1);
+        inExpenses >> transDate;
+        inExpenses.ignore(1);
+        inExpenses >> postDate;
+        inExpenses.ignore(1);
+        inExpenses >> supplies;
+        inExpenses.ignore(1);
+        inExpenses >> amount;
+        if (toupper(supplies) == "AMAZON" || toupper(supplies) == "T J MAXX" || toupper(supplies) == "WALMART" || toupper(supplies) == "SMITH'S")
+        {
+          expenses[0][0] = transDate;
+          expenses[0][1] = postDate;
+          expenses[0][2] = supplies;
+          expenses[0][3] = amount;
+        }
+       if (toupper(supplies) == "PHILLIPS")
+       {
+          expenses[1][0] = transDate;
+          expenses[1][1] = postDate;
+          expenses[1][2] = supplies;
+          expenses[1][3] = amount;
         
    
