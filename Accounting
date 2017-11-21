@@ -8,6 +8,7 @@ int main()
 {
 	int comma = 0;
 	int slash = 0;
+	string temp = "";
 	string year = "";
 	string month = "";
 	string supplies = "";
@@ -16,7 +17,9 @@ int main()
 	string dateComp = "";
 	string store = "";
 	string amount = "";
-	string expenses[18][4] = {"0.0"};
+	string electronics[10] = {"0.0"};
+	string electronics1[10] = {"0.0"};
+	string clothes[10] = {"0.0"};
 		
 	ifstream inExpenses;
 	inExpenses.open("Accounting.txt");
@@ -26,7 +29,7 @@ int main()
 		getline(inExpenses, supplies, '\n');
 		while (!inExpenses.eof())
 		{
-			for (int count = 0; count < 6; count++)
+			for (int count = 0; count < 1; count++)
 			{
 				comma = supplies.find(",", 0);
 				//cout << comma << endl;
@@ -47,57 +50,99 @@ int main()
 				comma = supplies.find(",", 0);
 				store = supplies.substr(0, comma);
 				supplies.erase(0, comma + 1);
+				
 				comma = 0;
 				comma = supplies.find(",", 0);
 				amount = supplies.substr(0);
-				for (int r = 0; r < 18; r++)
+				type.erase(0);
+				
+				temp = dateTrans;
+				slash = temp.find_first_of("/");
+				temp.erase(0, slash + 1);
+				slash = temp.find_first_of("/");
+				month = temp.substr(0, slash);
+				temp.erase(0, slash + 1);
+				year = temp.substr(0);
+				temp.clear();
+				if (store == "AMAZON MKTPLACE PMTS")
 				{
-						expenses[r][0] = dateTrans;
-						expenses[r][1] = dateComp;
-						expenses[r][2] = store;
-						expenses[r][3] = amount;
+					electronics[0] = "Electronics";
+					electronics[1] = amount;
+					electronics[2] = year;
+					electronics[3] = month;	
 				}
-				for (int row = 0; row < 18; row++)
+				else if (store == "Amazon.com")
 				{
-					for (int column = 0; column < 4; column++)
-					{
-						cout << expenses[row][column] << "  "  << endl;
-					
-					}
+					electronics1[0] = "Electronics";
+					electronics1[1] = amount;
+					electronics1[2] = year;
+					electronics1[3] = month;
 				}
-				type = "";
+				
+				for (int column = 0; column < 4; column++)
+				{
+					cout << electronics[column] << endl;
+				}
+				/*expenses[0] = dateTrans;
+				expenses[1] = dateComp;
+				expenses[2] = store;
+				expenses[3] = amount;
+				for (int column = 0; column < 4; column++)
+				{
+					cout << expenses[column] << "  "  << endl;
+				
+				}*/
+				string type = "";
 				string dateTrans = "";
 				string dateComp = "";
 				string store = "";
 				string amount = "";
-				getline(inExpenses, supplies, '\n');
 			}
+			
+			getline(inExpenses, supplies, '\n');
 		}
 		
 	}
 	inExpenses.close();
 	
-	ofstream outExpenses;
+	/*ofstream outExpenses;
 	outExpenses.open("Accounting2.txt");
 	string bought = "";
-	
-	if (outExpenses.is_open())
-	{
-		outExpenses << "Category      " << "Amount      " << "Year     " << "Month    " << endl;
-		for (int r = 0; r < 18; r++)
+		
+		if (outExpenses.is_open())
 		{
-				bought = expenses[r][0];
-				outExpenses << bought << ',';
-				bought = "";
-				bought = expenses[r][1];
-				outExpenses << bought << ',';
-				bought = "";
-				bought = expenses[r][2];
-				outExpenses << bought << ',';
-				bought = "";
-				bought = expenses[r][3];
-				outExpenses << bought << ',';
-				bought = "";
+			outExpenses << "Category," << "Amount," << "Year," << "Month" << endl;
+			for (int c = 0; c < 1; c += 1)
+			{
+					bought = electronics[0];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics[1];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics[2];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics[3];
+					outExpenses << bought << endl;
+					bought = "";
+			}
+			for (int c = 0; c < 1; c += 1)
+			{
+					bought = electronics1[0];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics1[1];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics1[2];
+					outExpenses << bought << ',';
+					bought = "";
+					bought = electronics1[3];
+					outExpenses << bought << endl;
+					bought = "";
+			}
 		}
-	}
+		outExpenses.close();*/
+
 }
