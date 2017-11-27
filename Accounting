@@ -13,6 +13,7 @@ int main()
 	int carRow = 0;
 	int foodRow = 0;
 	int booksRow = 0;
+	int paymentRow = 0;
 	string temp = "";
 	string year = "";
 	string month = "";
@@ -127,6 +128,14 @@ int main()
 				booksRow++;
 			}
 			
+			if (store == "AUTOMATIC PAYMENT - THANK")
+			{
+				payment[paymentRow][0] = "Payment";
+				payment[paymentRow][1] = amount;
+				payment[paymentRow][2] = year;
+				payment[paymentRow][3] = month;
+			}
+			
 			string type = "";
 			string dateTrans = "";
 			string dateComp = "";
@@ -232,6 +241,24 @@ int main()
 							outExpenses << bought << ',';
 							bought = "";
 							bought = books[booksRow][3];
+							outExpenses << bought << endl;
+							bought = "";
+						}
+				}
+				for (int paymentRow = 0; paymentRow < 15; paymentRow++)
+				{
+						if ((bought = payment[paymentRow][0]) != "")
+						{
+							bought = payment[paymentRow][0];
+							outExpenses << bought << ',';
+							bought = "";
+							bought = payment[paymentRow][1];
+							outExpenses << bought << ',';
+							bought = "";
+							bought = payment[paymentRow][2];
+							outExpenses << bought << ',';
+							bought = "";
+							bought = payment[paymentRow][3];
 							outExpenses << bought << endl;
 							bought = "";
 						}
