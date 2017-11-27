@@ -4,6 +4,7 @@ This program reads text files and sorts through data. Inspiration for this came 
 
 ## How To Use
 If original file is not named Accounting.txt, change the pathname in the Accounting.cpp on line 34.
+Or if you have other stores than the ones in the program, change the names on the appropriate lines. 70, 81, 92, 103, 114, 125.
 
 ## Example Run From Terminal
 <img src='example.png'/>
