@@ -67,10 +67,8 @@ int main()
 			temp.erase(0, slash + 1);
 			year = temp.substr(0);
 			temp.clear();
-			cout << store << endl;
 			if (store == "AMAZON MKTPLACE PMTS" || store == "Amazon.com")
 			{
-				cout << "Found Amazon" << endl;
 				
 				electronics[electronicsRow][0] = "Electronics";
 				electronics[electronicsRow][1] = amount;
@@ -82,7 +80,6 @@ int main()
 			
 			if (store == "T J MAXX #1417")
 			{
-				cout << "Found TJ MAXX" << endl;
 				
 				clothes[clothesRow][0] = "Clothes";
 				clothes[clothesRow][1] = amount;
@@ -94,7 +91,6 @@ int main()
 			
 			if (store == "TINKS SUPERIOR AUTOPARTS" || store == "PHILLIPS 66 - KB EXPRESS" || store == "CEDAR CITY MOTOR COMPANY")
 			{
-				cout << "Found TINKS SUPERIOR AUTOPARTS" << endl;
 				
 				car[carRow][0] = "Car";
 				car[carRow][1] = amount;
@@ -106,7 +102,6 @@ int main()
 			
 			if (store == "WAL-MART #1438" || store == "TROPICAL SMOOTHIE UT02" || store == "SMITHS FOOD #4042" || store == "SMITHS FOOD #4042")
 			{
-				cout << "Found Food" << endl;
 				
 				food[foodRow][0] = "Food";
 				food[foodRow][1] = amount;
@@ -118,7 +113,6 @@ int main()
 			
 			if (store == "Audible")
 			{
-				cout << "Found Audible" << endl;
 				
 				books[booksRow][0] = "Books";
 				books[booksRow][1] = amount;
@@ -144,125 +138,131 @@ int main()
 			
 			getline(inExpenses, supplies, '\n');
 		}
-		
+		ofstream outExpenses;
+			outExpenses.open("Accounting2.txt");
+			string bought = "";
+				
+				if (outExpenses.is_open())
+				{
+					outExpenses << "Category," << "Amount," << "Year," << "Month" << endl;
+					for (int electronicsRow = 0; electronicsRow < 15; electronicsRow++)
+					{
+							if ((bought = electronics[electronicsRow][0]) != "")
+							{
+								bought = electronics[electronicsRow][0];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = electronics[electronicsRow][1];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = electronics[electronicsRow][2];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = electronics[electronicsRow][3];
+								outExpenses << bought << endl;
+								bought = "";
+							}
+					}
+					for (int clothesRow = 0; clothesRow < 15; clothesRow++)
+					{
+							if ((bought = clothes[clothesRow][0]) != "")
+							{
+								bought = clothes[clothesRow][0];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = clothes[clothesRow][1];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = clothes[clothesRow][2];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = clothes[clothesRow][3];
+								outExpenses << bought << endl;
+								bought = "";
+							}
+					}
+					for (int carRow = 0; carRow < 15; carRow++)
+					{
+							if ((bought = car[carRow][0]) != "")
+							{
+								bought = car[carRow][0];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = car[carRow][1];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = car[carRow][2];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = car[carRow][3];
+								outExpenses << bought << endl;
+								bought = "";
+							}
+					}
+					for (int foodRow = 0; foodRow < 15; foodRow++)
+					{
+							if ((bought = food[foodRow][0]) != "")
+							{
+								bought = food[foodRow][0];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = food[foodRow][1];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = food[foodRow][2];
+								outExpenses << bought << ',';
+								bought = "";
+								bought = food[foodRow][3];
+								outExpenses << bought << endl;
+								bought = "";
+							}				
+						}
+						for (int booksRow = 0; booksRow < 15; booksRow++)
+						{
+								if ((bought = books[booksRow][0]) != "")
+								{
+									bought = books[booksRow][0];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = books[booksRow][1];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = books[booksRow][2];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = books[booksRow][3];
+									outExpenses << bought << endl;
+									bought = "";
+								}
+						}
+						for (int paymentRow = 0; paymentRow < 15; paymentRow++)
+						{
+								if ((bought = payment[paymentRow][0]) != "")
+								{
+									bought = payment[paymentRow][0];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = payment[paymentRow][1];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = payment[paymentRow][2];
+									outExpenses << bought << ',';
+									bought = "";
+									bought = payment[paymentRow][3];
+									outExpenses << bought << endl;
+									bought = "";
+								}
+						}
+					outExpenses.close();
+				}
+				else {
+					cout << "Could not open file to write to.";
+				}
+		inExpenses.close();
+		cout << "Run successfully saved in Accounting2.txt in the same folder as this program.";
 	}
-	inExpenses.close();
-	
-	ofstream outExpenses;
-	outExpenses.open("Accounting2.txt");
-	string bought = "";
-		
-		if (outExpenses.is_open())
-		{
-			outExpenses << "Category," << "Amount," << "Year," << "Month" << endl;
-			for (int electronicsRow = 0; electronicsRow < 15; electronicsRow++)
-			{
-					if ((bought = electronics[electronicsRow][0]) != "")
-					{
-						bought = electronics[electronicsRow][0];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = electronics[electronicsRow][1];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = electronics[electronicsRow][2];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = electronics[electronicsRow][3];
-						outExpenses << bought << endl;
-						bought = "";
-					}
-			}
-			for (int clothesRow = 0; clothesRow < 15; clothesRow++)
-			{
-					if ((bought = clothes[clothesRow][0]) != "")
-					{
-						bought = clothes[clothesRow][0];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = clothes[clothesRow][1];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = clothes[clothesRow][2];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = clothes[clothesRow][3];
-						outExpenses << bought << endl;
-						bought = "";
-					}
-			}
-			for (int carRow = 0; carRow < 15; carRow++)
-			{
-					if ((bought = car[carRow][0]) != "")
-					{
-						bought = car[carRow][0];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = car[carRow][1];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = car[carRow][2];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = car[carRow][3];
-						outExpenses << bought << endl;
-						bought = "";
-					}
-			}
-			for (int foodRow = 0; foodRow < 15; foodRow++)
-			{
-					if ((bought = food[foodRow][0]) != "")
-					{
-						bought = food[foodRow][0];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = food[foodRow][1];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = food[foodRow][2];
-						outExpenses << bought << ',';
-						bought = "";
-						bought = food[foodRow][3];
-						outExpenses << bought << endl;
-						bought = "";
-					}				
-				}
-				for (int booksRow = 0; booksRow < 15; booksRow++)
-				{
-						if ((bought = books[booksRow][0]) != "")
-						{
-							bought = books[booksRow][0];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = books[booksRow][1];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = books[booksRow][2];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = books[booksRow][3];
-							outExpenses << bought << endl;
-							bought = "";
-						}
-				}
-				for (int paymentRow = 0; paymentRow < 15; paymentRow++)
-				{
-						if ((bought = payment[paymentRow][0]) != "")
-						{
-							bought = payment[paymentRow][0];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = payment[paymentRow][1];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = payment[paymentRow][2];
-							outExpenses << bought << ',';
-							bought = "";
-							bought = payment[paymentRow][3];
-							outExpenses << bought << endl;
-							bought = "";
-						}
-				}
-		}
-		outExpenses.close();
+	else
+	{
+		cout << "File could not be opened.";
+	}
 }
