@@ -1,11 +1,14 @@
 # Accounting
-## Reads text files and sorts through data
-Inspiration for this came through my parents (small business owners) talking about how useful it would be to have a program that basically does the accounting for them. So that's what this program aims to do. It looks at a text file with all the expenses in it and sorts them into new text files it creates. It also totals expenses of the same kind.
+## About
+This program reads text files and sorts through data. Inspiration for this came through my parents (small business owners) talking about how useful it would be to have a program that basically does the accounting for them. So that's what this program aims to do. It looks at a text file with all the expenses in it and sorts them into new text files it creates. It also totals expenses of the same kind.
+
+## How To Use
+If original file is not named Accounting.txt, change the pathname in the Accounting.cpp on line 34.
 
 ## Example Run From Terminal
 <img src='example.png'/>
 
-## Test Run
+## Test Output
 Make sure you save the text file you want to organize in the same folder you store the code. If the code is on your desktop, the file should be as well.
 
 The following is a complete example of how the code works.
